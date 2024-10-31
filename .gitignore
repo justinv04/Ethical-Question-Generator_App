@@ -1,4 +1,5 @@
 node_modules/
+.vscode/
 .expo/
 dist/
 npm-debug.*
@@ -9,6 +10,8 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+expo-env.d.ts
+EXPO_README.md
 
 # macOS
 .DS_Store

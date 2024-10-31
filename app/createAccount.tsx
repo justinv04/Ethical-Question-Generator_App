@@ -4,28 +4,30 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { router } from "expo-router";
 
-import { login_user } from "@/js/apis.js";
+import { create_user } from "@/js/apis.js";
 
-export default function Index() {
+export default function CreateAccount() {
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    async function handleLogIn() {
-        if ((await login_user(username, password)) === true) {
-            router.push("./home");
+    async function handleCreateAccount() {
+        if ((await create_user(username, email, password)) === true) {
+            router.replace("./home");
         } else {
-            alert("Login Failed: Please Check Your Credentials");
+            alert("Account Creation Failed: Please Check Your Credentials");
         }
     }
 
     return (
         <ThemedView style={styles.container}>
             <ThemedText type="title" style={styles.title}>
-                Ethical Question Generator
+                {" "}
+                Create an Account{" "}
             </ThemedText>
-
             <ThemedText type="title" style={styles.description}>
-                Enter Your Username And Password:
+                {" "}
+                Enter Your Username, Email, And Password:{" "}
             </ThemedText>
 
             <TextInput
@@ -39,25 +41,25 @@ export default function Index() {
 
             <TextInput
                 style={styles.input}
+                placeholder="Email"
+                placeholderTextColor="#888"
+                autoCapitalize="none"
+                value={email}
+                onChangeText={setEmail}
+            />
+
+            <TextInput
+                style={styles.input}
                 placeholder="Password"
                 placeholderTextColor="#888"
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry
             />
-
-            <Button title="Login" color="#4CCF50" onPress={handleLogIn} />
-
             <Button
-                title="Sign Up"
-                color="transparent"
-                onPress={() => router.push("./createAccount")}
-            />
-
-            <Button
-                title="Forgot Password?"
-                color="transparent"
-                onPress={() => alert("Forgot Password Pressed")} //  !! Replace with function to send user an confirmation email
+                title="Create"
+                color="#4CCF50"
+                onPress={handleCreateAccount}
             />
         </ThemedView>
     );
