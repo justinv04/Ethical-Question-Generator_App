@@ -4,23 +4,23 @@ import { StyleSheet, Text, View, FlatList, Image } from "react-native";
 export default () => {
   const testData = useRef([
     {
-      text: "酌量添加，多少随意。随时都可以把 React Native 无缝集成到你已有的 Android 或 iOS 项目，当然也可以完全从头焕然一新地重写。",
+      text: "Add as much as you like. React Native can be seamlessly integrated into your existing Android or iOS projects at any time, or completely rewritten from scratch.",
       agree: false,
     },
     {
-      text: "React Native 将原生开发的最佳部分与 React 相结合， 致力于成为构建用户界面的顶尖 JavaScript 框架。",
+      text: "React Native combines the best parts of native development with React, committed to becoming the top JavaScript framework for building user interfaces.",
       agree: true,
     },
     {
-      text: "React Native 使你可以创建真正原生的应用，用户体验绝不拉胯。它提供了一些平台无关的抽象核心组件，像是View, Text 以及 Image等，可直接映射渲染为 对应平台的原生UI组件。",
+      text: "React Native allows you to create truly native applications without compromising on user experience. It provides some platform independent abstract core components, such as View, Text, and Image, which can be directly mapped and rendered as native UI components for the corresponding platform.",
       agree: false,
     },
     {
-      text: "通过 React 的声明式组件机制和 JavaScript 代码，现有的原生代码和api可以完美地封装嵌合到 React 组件中。这样既为更多新的开发团队赋予原生应用的开发能力，也能极大地提升现有原生团队的开发效率。",
+      text: "Through React's declarative component mechanism and JavaScript code, existing native code and APIs can be perfectly encapsulated and integrated into React components. This not only empowers more new development teams with native application development capabilities, but also greatly improves the development efficiency of existing native teams.",
       agree: true,
     },
     {
-      text: "在 2018 年, React Native 的贡献者数量在所有github的项目中 排名第二。如今，遍布世界各地的公司和个人持续地为 React Native 贡献着代码（包括但不限于）：Callstack, Expo, Infinite Red, Microsoft 以及 Software Mansion等。",
+      text: "In 2018, React Native ranked second among all GitHub projects in terms of the number of contributors. Nowadays, companies and individuals around the world continue to contribute code to React Native, including but not limited to Callstack, Expo, Infinite Red, Microsoft, and Software Mansion.",
       agree: false,
     },
     {

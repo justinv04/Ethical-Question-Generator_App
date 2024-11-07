@@ -7,13 +7,13 @@ export default () => {
 
   const onPress = () => {
     const options = [
-      "话题1",
-      "话题2",
-      "话题3",
-      "话题1",
-      "话题2",
-      "话题3",
-      "取消",
+      "Topic1",
+      "Topic2",
+      "Topic3",
+      "Topic4",
+      "Topic5",
+      "Topic6",
+      "Cancel",
     ];
     const destructiveButtonIndex = 0;
     const cancelButtonIndex = 2;
