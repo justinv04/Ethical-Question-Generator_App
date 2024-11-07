@@ -49,10 +49,10 @@ export default () => {
       <Text style={[styles.topTitle, { marginBottom: 20 }]}>Disagree?</Text>
       <View style={styles.card}>
         <Text style={styles.discript}>
-          在 expo-router 中，initialRouteName 配置不一定会按照预期工作，因为
-          expo-router 会根据文件结构和路由推断来确定默认页面。在你提供的
-          _layout.tsx 代码中，initialRouteName="about" 应该是有效的，但实际上
-          expo-router 主要依据文件结构来识别初始页面。
+        In expo router, the initial RouteName configuration may not work as expected because
+        Expo router will determine the default page based on file structure and route inference. In what you provided
+        _In the layout. tsx code, originalRouteName="about" should be valid, but in reality
+        The expo router mainly identifies the initial page based on the file structure.
         </Text>
         <View style={styles.btnViews}>
           <Button style={{ flex: 1 }} title="Agree" status="success" />
