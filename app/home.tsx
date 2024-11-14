@@ -1,19 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Text, Button, StyleSheet } from "react-native";
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 
-import { ping_server } from "@/js/apis.js";
+import { getSessionUsername } from "@/js/utilities.js";
 
 export default function Home() {
+    const [username, setUsername] = useState("");
+
+    const fetchData = async () => {
+        let username_str = await getSessionUsername();
+        if (username_str != null) {
+            username_str = username_str.split(" ")[0];
+            setUsername(username_str);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <ThemedView style={styles.container}>
             <ThemedText type="title" style={styles.title}>
-                Welcome to the Home Screen!
+                Hello, {username}!
             </ThemedText>
 
-            <Button title="ping" color="#4CCF50" onPress={ping_server} />
+            <ThemedView style={{ gap: 16 }}>
+                <ThemedView style={styles.nav}>
+                    <Button
+                        title="Prompt A Question"
+                        color="#7700FF"
+                        onPress={() => router.push("./tabs/PromptAQuestion")}
+                    />
+                    <Button
+                        title="View Responses"
+                        color="#7700FF"
+                        onPress={() => router.push("./tabs/ViewResponses")}
+                    />
+                </ThemedView>
+
+                <Button
+                    title="About The Team"
+                    color="#7700FF"
+                    onPress={() => router.push("./tabs/AboutUs")}
+                />
+            </ThemedView>
         </ThemedView>
     );
 }
@@ -21,11 +54,25 @@ export default function Home() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "space-around",
         alignItems: "center",
     },
+
     title: {
-        fontSize: 24,
+        margin: 10,
+        fontSize: 48,
         fontWeight: "bold",
+        color: "#FFF",
+    },
+
+    nav: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 10,
+    },
+
+    button: {
+        borderRadius: 10,
     },
 });

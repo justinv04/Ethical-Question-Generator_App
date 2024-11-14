@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { StyleSheet, TextInput, Button, View } from "react-native";
+import { StyleSheet, TextInput, Button } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
+
 import { login_user } from "@/js/apis.js";
 
 export default function Index() {
@@ -26,18 +27,6 @@ export default function Index() {
       <ThemedText type="title" style={styles.description}>
         Enter Your Username And Password:
       </ThemedText>
-
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-around",
-        }}
-      >
-        <Link style={{width: '20%', height: 40, marginHorizontal: 10,}} href={"/about"}>about</Link>
-        <Link style={{width: '20%', height: 40, marginHorizontal: 10}}  href={"/about/agree"}>agree</Link>
-        <Link style={{width: '20%', height: 40, marginHorizontal: 10}}  href={"/about/responses"}>responses</Link>
-      </View>
 
       <TextInput
         style={styles.input}
@@ -83,6 +72,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 50,
+    textAlign: "center",
   },
   description: {
     fontSize: 25,

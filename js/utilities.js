@@ -23,7 +23,7 @@ export async function encrypt(text) {
     return hashHex;
 }
 
-export async function getCurrentDate() {
+export function getCurrentDate() {
     const now = new Date();
 
     const year = now.getFullYear();
@@ -33,11 +33,17 @@ export async function getCurrentDate() {
     return `${year}-${month}-${day}`;
 }
 
+export function AmericanizeDateString(dateString) {
+    const [year, month, day] = dateString.split('-');
+    return `${month}-${day}-${year}`;
+}
+
 export async function setSessionJWT(token) {
     try {
         await AsyncStorage.setItem("Session_JWT", token);
     } catch (error) {
         console.error(error);
+        return;
     }
 }
 
@@ -46,5 +52,43 @@ export async function getSessionJWT(token) {
         return await AsyncStorage.getItem("Session_JWT");
     } catch (error) {
         console.error(error);
+        return;
+    }
+}
+
+export async function getSessionUsername() {
+    try {
+        return await AsyncStorage.getItem("Session_Username");
+    } catch (error) {
+        console.error(error);
+        return;
+    }
+}
+
+export async function setSessionUsername(username) {
+    try {
+        await AsyncStorage.setItem("Session_Username", username);
+    } catch (error) {
+        console.error(error);
+        return;
+    }
+}
+
+
+export async function getSessionUserID() {
+    try {
+        return await AsyncStorage.getItem("Session_User_ID");
+    } catch (error) {
+        console.error(error);
+        return;
+    }
+}
+
+export async function setSessionUserID(id) {
+    try {
+        await AsyncStorage.setItem("Session_User_ID", id);
+    } catch (error) {
+        console.error(error);
+        return;
     }
 }
